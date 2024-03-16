@@ -1,49 +1,35 @@
 package controleAcademico;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Disciplina {
     private final String nome;
 
-    private String horario;
+    private final int codigo;
 
-    List<Aluno> turma = new ArrayList<>();
+    private final int carga_horaria;
 
-    public void adcionarAluno(Aluno aluno){
-        turma.add(aluno);
-    }
 
-    public int quantAlunos(){
-
-        return turma.size();
-
+    public Disciplina(String nome, int codigo, int carga_horaria) {
+        this.nome = nome;
+        this.codigo = codigo;
+        this.carga_horaria = carga_horaria;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Disciplina(String nome, String horario) {
-        this.nome = nome;
-        this.horario = horario;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public String getHorario() {
-        return horario;
+    public int getCarga_horaria() {
+        return carga_horaria;
     }
 
-	public List<Aluno> getTurma() {
-		return turma;
-	}
 
-	public void setTurma(List<Aluno> turma) {
-		this.turma = turma;
-	}
 
-	public void setHorario(String horario) {
-		this.horario = horario;
-	}
+
 
 
 
