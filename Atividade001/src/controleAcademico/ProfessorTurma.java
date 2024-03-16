@@ -1,32 +1,27 @@
 package controleAcademico;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ProfessorTurma {
+    private static ArrayList<Professor> professores = new ArrayList<>();
+    private static ArrayList<Turma> turmas = new ArrayList<>();
 
-    Professor professor;
-
-    List<Disciplina> disciplinasMinistradas = new ArrayList<>();
-
-    public void adicionarDisciplina(Disciplina disciplina) {
-
-        disciplinasMinistradas.add(disciplina);
+    public static void addNovoProfessor(String nome){
+        professores.add(new Professor(nome));
     }
 
-    public void Disciplinas() {
-        System.out.println("Disciplinas do professor " + professor.getNome() + ":");
-        for (Disciplina disciplina : this.disciplinasMinistradas) {
+    public static void addNovaTurma(String sala, String horario, Disciplina disciplina){
+        turmas.add(new Turma(sala, horario, disciplina));
+    }
+
+    public static void addDisciplinaProfessor(int indexProfessor, int indexTurma){
+        professores.get(indexProfessor).getHorario().add(turmas.get(indexTurma).getDisciplina());
+    }
+
+    public static void imprimeDisciplinasHorarioProfessor(int indexProfessor) {
+        System.out.println("Horário e disciplinas do professor " + professores.get(indexProfessor).getNome() + ":");
+        for (Disciplina disciplina : professores.get(indexProfessor).getHorario()) {
             System.out.println(disciplina.getNome());
         }
     }
-
-	public List<Disciplina> getDisciplinasMinistradas() {
-		return disciplinasMinistradas;
-	}
-
-	public void setDisciplinasMinistradas(List<Disciplina> disciplinasMinistradas) {
-		this.disciplinasMinistradas = disciplinasMinistradas;
-	}
-    
 }
